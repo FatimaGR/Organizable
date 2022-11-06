@@ -1,9 +1,8 @@
+import Unauthenticate from "./Unauthenticated";
 
 function App() {
   return (
-    <div>
-      <p>Hola</p>
-    </div>
+    <Unauthenticate/>
   );
 }
 
