@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Input } from "./components/input";
+import { login } from "./services/session-service";
 
 function Unauthenticate() {
   const [formData, setFormData] = useState({
@@ -9,7 +10,10 @@ function Unauthenticate() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData)
+    console.log(formData);
+    login(formData)
+    .then(user => console.log(user))
+    .catch(error => console.log(error))
   }
 
   function handleChange(event) {
