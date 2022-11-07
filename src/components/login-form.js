@@ -1,15 +1,19 @@
 import { useState } from "react";
+import { useAuth } from "../context/auth-context";
 import { Input } from "./input";
 
-function LoginForm({onLogin}) {
+function LoginForm() {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
 
+  const { login } = useAuth();
+
   function handleSubmit(e) {
     e.preventDefault();
-    onLogin(formData)
+    console.log(formData);
+    login(formData)
   }
 
   function handleChange(e) {

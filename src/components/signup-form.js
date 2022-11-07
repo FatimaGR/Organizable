@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { useAuth } from "../context/auth-context";
 import { Input } from "./input";
 
-function SignUpForm({onSignUp}) {
+function SignUpForm() {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -10,9 +11,11 @@ function SignUpForm({onSignUp}) {
     password: "",
   });
 
+  const { signUp } = useAuth();
+
   function handleSubmit(e) {
     e.preventDefault();
-    onSignUp(formData);
+    signUp(formData);
   }
 
   function handleChange(e) {
