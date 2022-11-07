@@ -1,46 +1,21 @@
 import { useState } from "react";
-import { Input } from "./components/input";
-import { login } from "./services/session-service";
+import LoginForm from "./components/login-form";
+import SignUpForm from "./components/signup-form";
 
-function Unauthenticate() {
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-  });
+function Unauthenticate({onLogin, onSignUp}) {
+  const [login, setLogin] = useState(true);
 
-  function handleSubmit(e) {
+  function handleClick(e) {
     e.preventDefault();
-    console.log(formData);
-    login(formData)
-    .then(user => console.log(user))
-    .catch(error => console.log(error))
-  }
-
-  function handleChange(event) {
-    const {name, value} = event.target;
-    setFormData({ ... formData, [name]: value});
+    setLogin(!login);
   }
 
   return (
     <div>
       <h2>Organizable</h2>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <Input
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          label="Username"
-        />
-        <Input
-          name="password"
-          type="password"
-          value={formData.password}
-          onChange={handleChange}
-          label="Password"
-        />
-        <button type="submit">Login</button>
-      </form>
+      <h1>{login ? "Login" : "Sign Up"}</h1>
+      {login ? <LoginForm onLogin={onLogin} /> : <SignUpForm onSignUp={onSignUp}/>}
+      <button onClick={handleClick}>{login ? "Create Account" : "Login"}</button>
     </div>
   )
 }
