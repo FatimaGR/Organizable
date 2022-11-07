@@ -6,7 +6,6 @@ function Unauthenticate({onLogin, onSignUp}) {
   const [login, setLogin] = useState(true);
 
   function handleClick(e) {
-    e.preventDefault();
     setLogin(!login);
   }
 

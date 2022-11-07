@@ -1,6 +1,8 @@
 const MyBoards = () => {
   return(
-    <div>My Boards</div>
+    <div>
+    <h1>My Boards</h1>
+    </div>
   )
 }
 

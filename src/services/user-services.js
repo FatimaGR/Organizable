@@ -10,8 +10,8 @@ export function createUser(userData){
   })
 }
 
-export function getUser(){
-  return apiFetch(`/users`)
+export function getUser(id){
+  return apiFetch(`/users/${id}`)
   .then(u => {
     const {token, ...user} = u;
     return user;
