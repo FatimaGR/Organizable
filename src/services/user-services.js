@@ -17,3 +17,11 @@ export function getUser(id){
     return user;
   })
 }
+
+export function editUser(id, userData){
+  return apiFetch(`/users/${id}`, {body: userData, method: "PATCH"})
+}
+
+export function deleteUser(id){
+  return apiFetch(`/users/${id}`, {method: "DELETE"})
+}

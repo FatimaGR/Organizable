@@ -9,7 +9,3 @@ export function login(credentials){
     return user;
   })
 }
-
-export function logout(){
-  return apiFetch("/logout", {method: "DELETE"})
-}

@@ -1,19 +1,24 @@
+import styled from "@emotion/styled";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar";
 import ClosedBoards from "./pages/closed-boards";
 import MyBoards from "./pages/my-boards";
 import MyProfile from "./pages/my-profile";
 
-function Authenticate({onLogout}) {
+const HomeContainer = styled.div`
+  display: flex;
+`;
+
+function Authenticate() {
   return(
-    <div>
-      <Navbar onLogout={onLogout}/>
+    <HomeContainer>
+      <Navbar/>
       <Routes>
         <Route index element={<MyBoards/>}/>
         <Route path="/ClosedBoards" element={<ClosedBoards/>}/>
         <Route path="/MyProfile" element={<MyProfile/>}/>
       </Routes>
-    </div>
+    </HomeContainer>
   )
 }
 
