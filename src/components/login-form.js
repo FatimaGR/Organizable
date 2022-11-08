@@ -12,8 +12,7 @@ function LoginForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData);
-    login(formData)
+    login(formData);
   }
 
   function handleChange(e) {
