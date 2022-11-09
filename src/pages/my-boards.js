@@ -14,6 +14,7 @@ const CardBoard = styled.div`
   border: 1px solid black;
   margin: 8px;
   border-radius: 8px;
+  background-color: ${(props) => props.color};
 `;
 
 const CreateBoardCard = styled.button`
@@ -52,7 +53,8 @@ function MyBoards() {
         <ContainerBoards>
           {boards.map((board) => {
             return(
-              <CardBoard key={board.id}>
+              <CardBoard key={board.id} color={board.color}>
+                {console.log(board)}
                 <p>{board.name}</p>
                 <button>Star</button>
                 <button>Delete</button>
