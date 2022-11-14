@@ -13,7 +13,7 @@ export function createBoards(boardData){
 }
 
 export function updateBoard(id, data){
-  return apiFetch(`/boards${id}`, {body: data, method: "PATCH"})
+  return apiFetch(`/boards/${id}`, {body: data, method: "PATCH"})
 }
 
 export function deleteBoard(id){
