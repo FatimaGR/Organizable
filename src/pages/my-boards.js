@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import CardBoard from "../components/card-board";
 import CreateBoard from "../components/create-board";
 import { Modal } from "../components/create-modal";
-import { getBoards, updateBoard } from "../services/board-services";
+import { getBoards } from "../services/board-services";
 
 const ContainerBoards = styled.div`
   display: flex;
