@@ -43,9 +43,7 @@ function MyBoards() {
         <ContainerBoards>
           {starredBoards.map((board) => {
             return(
-              <div>
-              <CardBoard board={board}/>
-              </div>
+              <CardBoard key={board.id} board={board}/>
             )
           })}
         </ContainerBoards>
@@ -55,9 +53,7 @@ function MyBoards() {
         <ContainerBoards>
           {unstarredBoards.map((board) => {
             return(
-              <div>
-              <CardBoard board={board}/>
-              </div>
+              <CardBoard key={board.id} board={board} />
             )
           })}
           <Modal open={open} close={() => setOpen(false)}><CreateBoard/></Modal>

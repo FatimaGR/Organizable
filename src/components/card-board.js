@@ -36,7 +36,7 @@ function CardBoard({board}){
   }
 
   return(
-    <Card key={board?.id} color={board?.color}>
+    <Card color={board?.color}>
       <p>{board?.name}</p>
       <input id={board?.id} name="starred" type="checkbox" checked={isChecked} onChange={handleOnChangeChecked}/>
       {isChecked ? handleStarred(board?.id, true) : handleStarred(board?.id, false)}

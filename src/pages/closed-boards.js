@@ -24,13 +24,11 @@ function ClosedBoards() {
     <div>
       <h1>Closed Boards</h1>
       <ContainerBoards>
-          {closedBoards.map((board) => {
-            return(
-              <div>
-              <CardBoard board={board}/>
-              </div>
-            )
-          })}
+        {closedBoards.map((board) => {
+          return(
+            <CardBoard key={board.id} board={board} />
+          )
+        })}
       </ContainerBoards>
     </div>
   )
