@@ -9,7 +9,7 @@ export function updateList(boardId, listId, data){
 }
 
 export function deleteList(boardId, listId){
-  return apiFetch(`/boards/${boardId}/lists/${listId}`)
+  return apiFetch(`/boards/${boardId}/lists/${listId}`, {method: "DELETE"})
 }
 
 export function sortList(boardId, sort){

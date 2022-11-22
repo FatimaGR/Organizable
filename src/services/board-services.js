@@ -5,7 +5,7 @@ export function getBoards(){
 }
 
 export function getBoardById(id){
-  return apiFetch(`/boards${id}`)
+  return apiFetch(`/boards/${id}`)
 }
 
 export function createBoards(boardData){

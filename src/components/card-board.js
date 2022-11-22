@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
-import { updateBoard } from "../services/board-services";
+import { deleteBoard, updateBoard } from "../services/board-services";
 
 const Card = styled.div`
   width: 190px;
@@ -14,6 +14,7 @@ const Card = styled.div`
 function CardBoard({board}){
   const [isChecked, setIsChecked] = useState(board.starred);
   const [isActive, setIsActive] = useState(board.closed);
+  const [isDelete, setIsDelete] = useState(false);
 
   function handleOnChangeChecked() {
     setIsChecked(!isChecked);
@@ -35,15 +36,53 @@ function CardBoard({board}){
     .catch(error => console.log(error));
   }
 
-  return(
-    <Card color={board?.color}>
-      <p>{board?.name}</p>
-      <input id={board?.id} name="starred" type="checkbox" checked={isChecked} onChange={handleOnChangeChecked}/>
-      {isChecked ? handleStarred(board?.id, true) : handleStarred(board?.id, false)}
-      <input name="closed" type="checkbox" checked={isActive} onChange={handleOnChangeActive}/>
-      {isActive ? handleClosed(board?.id, true) : handleClosed(board?.id, false)}
-    </Card>
-  )
+  function handleDelete(){
+    setIsDelete(!isDelete);
+    deleteBoard(board?.id)
+    .catch(error => console.log(error));
+  }
+
+  if (board?.closed == false){
+    return(
+      <Card color={board?.color}>
+        <a href={`/Board/${board?.id}`}>{board?.name}</a>
+        <input 
+          id={board?.id} 
+          name="starred" 
+          type="checkbox" 
+          checked={isChecked} 
+          onChange={handleOnChangeChecked}
+        />
+        {isChecked ? handleStarred(board?.id, true) : handleStarred(board?.id, false)}
+        <input 
+          name="closed" 
+          type="checkbox" 
+          checked={isActive} 
+          onChange={handleOnChangeActive}
+        />
+        {isActive ? handleClosed(board?.id, true) : handleClosed(board?.id, false)}
+      </Card>
+    )
+  } else {
+    return(
+      <Card color={board?.color}>
+        <a href={`/Board/${board?.id}`}>{board?.name}</a>
+        <input 
+          name="closed" 
+          type="checkbox" 
+          checked={isActive} 
+          onChange={handleOnChangeActive}
+        />
+        {isActive ? handleClosed(board?.id, true) : handleClosed(board?.id, false)}
+        <input 
+          name="delete" 
+          type="checkbox" 
+          checked={isDelete} 
+          onChange={handleDelete}
+        />
+      </Card>
+    )
+  }
 }
 
 export default CardBoard;
