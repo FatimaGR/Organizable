@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Lists from "../components/lists";
+import { Lists, addSortableList } from "../components/lists";
 import { getBoardById } from "../services/board-services";
 import { createList } from "../services/list-services";
 
@@ -31,11 +31,14 @@ function DetailBoard() {
   return(
     <div>
       <h1>{board?.name}</h1>
+      <div className="container-list">
       {board?.lists.map((list) => {
+        addSortableList();
         return(
           <Lists key={list.id} list={list} boardId={params.id}/>
         )
       })}
+      </div>
       <form onSubmit={handleSubmit}>
         <input placeholder="new list" value={formData.name} name="name" onChange={handleChange}/>
         <button type="submit">+</button>

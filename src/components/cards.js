@@ -1,6 +1,8 @@
-import { deleteCard } from "../services/card-services";
+import { useState } from "react";
+import Sortable from "sortablejs";
+import { createCard, deleteCard } from "../services/card-services";
 
-function Cards({listId, card}) {
+export function Cards({listId, card}) {
 
   function handleDelete(){
     deleteCard(listId, card.cardId)
@@ -15,4 +17,45 @@ function Cards({listId, card}) {
   )
 }
 
-export default Cards;
+export function addSortableCard(){
+  const cardSortables = document.querySelectorAll(".container-card");
+  cardSortables.forEach(cardSortable => {
+    new Sortable(cardSortable, {
+      animation: 150,
+      store: {
+        set: function (sortable) {
+          var order = sortable.toArray();
+          console.log("hola", order)
+        }
+      }
+    })
+  })
+}
+
+export function CreateCards({listId}) {
+  const [cardData, setCardData] = useState({
+    name: "",
+  })
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    createCard(listId, cardData);
+  }
+
+  function handleChange(e) {
+    const {name, value} = e.target;
+    setCardData({ ... cardData, [name]: value});
+  }
+
+  return(
+    <form onSubmit={handleSubmit}>
+      <input
+        name="name"
+        value={cardData.name}
+        onChange={handleChange}
+        placeholder="new card"
+      />
+      <button type="submit">más</button>
+    </form>
+  )
+}
