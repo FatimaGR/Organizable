@@ -1,14 +1,16 @@
-function Cards({card}) {
+import { deleteCard } from "../services/card-services";
+
+function Cards({listId, card}) {
+
+  function handleDelete(){
+    deleteCard(listId, card.cardId)
+    .catch(error => console.log(error))
+  }
+
   return(
     <div>
-      <div>
-        <p>Name</p>
-        <button>X</button>
-      </div>
-      <form>
-        <input placeholder="new card"/>
-        <a>+</a>
-      </form>
+      <a>{card.name}</a>
+      <button onClick={handleDelete}>X</button>
     </div>
   )
 }
