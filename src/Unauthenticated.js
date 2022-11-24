@@ -1,6 +1,22 @@
 import { useState } from "react";
 import LoginForm from "./components/login-form";
 import SignUpForm from "./components/signup-form";
+import { FormButton2 } from "./styles/button";
+import styled from "@emotion/styled";
+
+const Container = styled.div`
+  height: 100vh;
+  display: flex;
+`;
+
+const ContainerForm = styled.div`
+  width: 704px;
+  margin: auto;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 function Unauthenticate() {
   const [login, setLogin] = useState(true);
@@ -10,12 +26,14 @@ function Unauthenticate() {
   }
 
   return (
-    <div>
-      <h2>Organizable</h2>
-      <h1>{login ? "Login" : "Sign Up"}</h1>
-      {login ? <LoginForm/> : <SignUpForm/>}
-      <button onClick={handleClick}>{login ? "Create Account" : "Login"}</button>
-    </div>
+    <Container>
+      <ContainerForm>
+        <img src="./assets/logo.svg"/>
+        <h1>{login ? "Login" : "Sign Up"}</h1>
+        {login ? <LoginForm/> : <SignUpForm/>}
+        <FormButton2 onClick={handleClick}>{login ? "Create Account" : "Login"}</FormButton2>
+      </ContainerForm>
+    </Container>
   )
 }
 

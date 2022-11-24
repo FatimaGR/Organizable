@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useAuth } from "../context/auth-context";
+import { FormButton1 } from "../styles/button";
+import { icons } from "../styles/icons";
+import { Form } from "../styles/input";
 import { Input } from "./input";
 
 function SignUpForm() {
@@ -24,43 +27,46 @@ function SignUpForm() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <Input
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          label="Username"
-        />
-        <Input
-          name="email"
-          type="email"
-          value={formData.email}
-          onChange={handleChange}
-          label="Email"
-        />
-        <Input
-          name="first_name"
-          value={formData.first_name}
-          onChange={handleChange}
-          label="First name"
-        />
-        <Input
-          name="last_name"
-          value={formData.last_name}
-          onChange={handleChange}
-          label="Last name"
-        />
-        <Input
-          name="password"
-          type="password"
-          value={formData.password}
-          onChange={handleChange}
-          label="Password"
-        />
-        <button type="submit">Create Account</button>
-      </form>
-    </div>
+    <Form onSubmit={handleSubmit}>
+      <Input
+        name="username"
+        value={formData.username}
+        onChange={handleChange}
+        label="USERNAME"
+        icon={icons.user}
+      />
+      <Input
+        name="email"
+        type="email"
+        value={formData.email}
+        onChange={handleChange}
+        label="EMAIL"
+        icon={icons.mail}
+      />
+      <Input
+        name="first_name"
+        value={formData.first_name}
+        onChange={handleChange}
+        label="FIRST NAME"
+        icon={icons.clipboard}
+      />
+      <Input
+        name="last_name"
+        value={formData.last_name}
+        onChange={handleChange}
+        label="LAST NAME"
+        icon={icons.clipboard}
+      />
+      <Input
+        name="password"
+        type="password"
+        value={formData.password}
+        onChange={handleChange}
+        label="PASSWORD"
+        icon={icons.key}
+      />
+      <FormButton1 type="submit">CREATE ACCOUNT</FormButton1>
+    </Form>
   )
 }
 

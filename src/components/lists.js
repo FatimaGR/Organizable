@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Sortable from "sortablejs";
 import { deleteList, updateList } from "../services/list-services";
-import { addSortable, addSortableCard, Cards, CreateCards } from "./cards";
+import { addSortableCard, Cards, CreateCards } from "./cards";
 
 export function Lists({boardId, list}) {
   const [isChecked, setIsChecked] = useState(false);

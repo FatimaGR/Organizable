@@ -1,14 +1,19 @@
-export function Input({id, name, type="text", value, onChange, label}) {
+import { FormInput, FormInputContainer, FormLabel } from "../styles/input";
+
+export function Input({id, name, type="text", value, onChange, label, icon}) {
   return(
     <div>
-      <label htmlFor={id || name}>{label}</label>
-      <input
-        type={type}
-        name={name}
-        id={id || name}
-        value={value}
-        onChange={onChange}
-      />
+      <FormLabel htmlFor={id || name}>{label}</FormLabel>
+      <FormInputContainer>
+        {icon}
+        <FormInput
+          type={type}
+          name={name}
+          id={id || name}
+          value={value}
+          onChange={onChange}
+        />
+      </FormInputContainer>
     </div>
   )
 }

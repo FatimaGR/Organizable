@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { useAuth } from "../context/auth-context";
 import { Input } from "./input";
+import { icons } from "../styles/icons";
+import { FormButton1 } from "../styles/button";
+import styled from "@emotion/styled";
+import { Form } from "../styles/input";
+
 
 function LoginForm() {
   const [formData, setFormData] = useState({
@@ -21,24 +26,24 @@ function LoginForm() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <Input
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          label="Username"
-        />
-        <Input
-          name="password"
-          type="password"
-          value={formData.password}
-          onChange={handleChange}
-          label="Password"
-        />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <Form onSubmit={handleSubmit}>
+      <Input
+        name="username"
+        value={formData.username}
+        onChange={handleChange}
+        label="USERNAME"
+        icon={icons.user}
+      />
+      <Input
+        name="password"
+        type="password"
+        value={formData.password}
+        onChange={handleChange}
+        label="PASSWORD"
+        icon={icons.key}
+      />
+      <FormButton1 type="submit">LOGIN</FormButton1>
+    </Form>
   )
 }
 

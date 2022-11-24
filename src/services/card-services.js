@@ -1,6 +1,5 @@
 import apiFetch from "./api-fetch";
 
-
 export function createCard(listId, cardData){
   return apiFetch(`/lists/${listId}/cards`, {body: cardData})
 }

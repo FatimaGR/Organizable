@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { createBoards } from "../services/board-services";
-import { boardColors } from "./utils";
+import { boardColors } from "../styles/colors";
+
 
 const Color = styled.input`
   -webkit-appearance: none;

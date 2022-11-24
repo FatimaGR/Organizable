@@ -8,6 +8,7 @@ import MyProfile from "./pages/my-profile";
 
 const HomeContainer = styled.div`
   display: flex;
+  width: 100%;
 `;
 
 function Authenticate() {
