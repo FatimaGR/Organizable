@@ -5,6 +5,7 @@ import { getBoards } from "../services/board-services";
 
 const ContainerBoards = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 function ClosedBoards() {

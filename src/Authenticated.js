@@ -12,7 +12,7 @@ const HomeContainer = styled.div`
 `;
 
 const ContainerPages = styled.div`
-  width: 100vh;
+  width: 100%;
   padding: 32px;
 `;
 

@@ -4,17 +4,22 @@ import CardBoard from "../components/card-board";
 import CreateBoard from "../components/create-board";
 import { Modal } from "../components/create-modal";
 import { getBoards } from "../services/board-services";
+import { colors } from "../styles/colors";
+import { typography } from "../styles/typography";
 
 const ContainerBoards = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const CreateBoardCard = styled.button`
   width: 190px;
   height: 96px;
-  border: 1px solid black;
+  border: 3px solid ${colors.gray300};
   margin: 8px;
   border-radius: 8px;
+  ${typography.content.lg}
+  color: ${colors.gray400};
 `;
 
 
@@ -39,7 +44,8 @@ function MyBoards() {
   return(
     <div>
       <h1>My Boards</h1>
-      <div>
+      {(starredBoards.length > 0) ? (
+        <div>
         <h2>Starred Boards</h2>
         <ContainerBoards>
           {starredBoards.map((board) => {
@@ -49,6 +55,7 @@ function MyBoards() {
           })}
         </ContainerBoards>
       </div>
+      ): ""}
       <div>
         <h2>Boards</h2>
         <ContainerBoards>

@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { deleteBoard, updateBoard } from "../services/board-services";
 import { colors } from "../styles/colors";
-import { typography } from "../styles/typography";
 import { Link } from "react-router-dom";
-import { icons } from "../styles/icons";
 import star from "../assets/star.svg";
 import starred from "../assets/starred.svg";
+import trash from "../assets/trash.svg";
+import arrow from "../assets/arrow.svg";
 
 const Card = styled.div`
   width: 190px;
@@ -47,7 +47,7 @@ const StarButton = styled.input`
   }
 `;
 
-const StarBackground = styled.div`
+const IconBackground = styled.div`
   border-radius: 12px;
   width: 24px;
   height: 24px;
@@ -58,6 +58,29 @@ const StarBackground = styled.div`
   align-items: center;
   box-sizing: border-box;
   padding: 3px;
+`;
+
+const ClosedButton = styled.input`
+  appearance: none;
+  background-image: url(${trash});
+  width: 16.3px;
+  height: 17.5px;
+  cursor: pointer;
+  margin: 0;
+  &:checked {
+    background-image: url(${arrow});
+    width: 10px;
+    height: 12px;
+  }
+`;
+
+const DeleteButton = styled.input`
+  appearance: none;
+  background-image: url(${trash});
+  width: 16.3px;
+  height: 17.5px;
+  cursor: pointer;
+  margin: 0;
 `;
 
 
@@ -97,7 +120,16 @@ function CardBoard({board}){
       <Card color={board?.color}>
         <Link to={`/Board/${board?.id}`} style={cardName}>{board?.name}</Link>
         <Options>
-        <StarBackground>
+        <IconBackground>
+          <ClosedButton 
+            name="closed" 
+            type="checkbox" 
+            checked={isActive} 
+            onChange={handleOnChangeActive}
+          />
+        </IconBackground>
+        {isActive ? handleClosed(board?.id, true) : handleClosed(board?.id, false)}
+        <IconBackground>
           <StarButton 
             id={board?.id} 
             name="starred" 
@@ -105,17 +137,8 @@ function CardBoard({board}){
             checked={isChecked} 
             onChange={handleOnChangeChecked}
           />
-        </StarBackground>
+        </IconBackground>
         {isChecked ? handleStarred(board?.id, true) : handleStarred(board?.id, false)}
-        <StarBackground>
-          <input 
-            name="closed" 
-            type="checkbox" 
-            checked={isActive} 
-            onChange={handleOnChangeActive}
-          />
-        </StarBackground>
-        {isActive ? handleClosed(board?.id, true) : handleClosed(board?.id, false)}
         </Options>
       </Card>
     )
@@ -124,23 +147,23 @@ function CardBoard({board}){
       <Card color={board?.color}>
         <Link to={`/Board/${board?.id}`} style={cardName}>{board?.name}</Link>
         <Options>
-        <StarBackground>
-          <input 
+        <IconBackground>
+          <ClosedButton 
             name="closed" 
             type="checkbox" 
             checked={isActive} 
             onChange={handleOnChangeActive}
           />
-        </StarBackground>
+        </IconBackground>
         {isActive ? handleClosed(board?.id, true) : handleClosed(board?.id, false)}
-        <StarBackground>
-        <input 
+        <IconBackground>
+        <DeleteButton 
           name="delete" 
           type="checkbox" 
           checked={isDelete} 
           onChange={handleDelete}
         />
-        </StarBackground>
+        </IconBackground>
         </Options>
       </Card>
     )

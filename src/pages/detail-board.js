@@ -1,8 +1,41 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Lists, addSortableList } from "../components/lists";
 import { getBoardById } from "../services/board-services";
 import { createList } from "../services/list-services";
+import logo from "../assets/logo.svg";
+import styled from "@emotion/styled";
+import { colors } from "../styles/colors";
+import { weight } from "../styles/typography";
+
+const BoardBackground = styled.div`
+  height: 100%;
+  width: 100%;
+  padding: 32px;
+  background-color: ${(props) => props.color};
+`;
+
+const Page = styled.div`
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+`;
+
+const Title = styled.div`
+  width: 100%;
+  height: 48px;
+  background-color: ${colors.gray100};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const BoardName = styled.h1`
+  ${weight.semibold}
+  margin: 0px;
+  color: ${colors.gray500};
+`;
 
 function DetailBoard() {
   const [board, setBoard] = useState(null);
@@ -29,21 +62,26 @@ function DetailBoard() {
   }
 
   return(
-    <div>
-      <h1>{board?.name}</h1>
-      <div className="container-list">
-      {board?.lists.map((list) => {
-        addSortableList();
-        return(
-          <Lists key={list.id} list={list} boardId={params.id}/>
-        )
-      })}
-      </div>
-      <form onSubmit={handleSubmit}>
-        <input placeholder="new list" value={formData.name} name="name" onChange={handleChange}/>
-        <button type="submit">+</button>
-      </form>
-    </div>
+    <Page>
+      <Title>
+        <Link to={"/"}><img src={logo}/></Link>
+      </Title>
+      <BoardBackground color={board?.color}>
+        <BoardName>{board?.name}</BoardName>
+        <div className="container-list">
+        {board?.lists.map((list) => {
+          addSortableList();
+          return(
+            <Lists key={list.id} list={list} boardId={params.id}/>
+          )
+        })}
+        </div>
+        <form onSubmit={handleSubmit}>
+          <input placeholder="new list" value={formData.name} name="name" onChange={handleChange}/>
+          <button type="submit">+</button>
+        </form>
+      </BoardBackground>
+    </Page>
   )
 }
 
