@@ -11,11 +11,6 @@ const ContainerForm = styled.div`
   display: flex;
   margin: auto;
 `;
-  
-const ContainerMyProfile = styled.div`
-  width: 100vh;
-  padding: 32px;
-`;
 
 function MyProfile() {
   
@@ -46,7 +41,7 @@ function MyProfile() {
   };
 
   return (
-    <ContainerMyProfile>
+    <div>
       <h1>My profile</h1>
       <ContainerForm>
       <Form onSubmit={handleSubmit}>
@@ -83,7 +78,7 @@ function MyProfile() {
         <FormButton1 onClick={handleDelete}>DELETE MY ACCOUNT</FormButton1>
       </Form>
       </ContainerForm>
-    </ContainerMyProfile>
+    </div>
   )
 }
 

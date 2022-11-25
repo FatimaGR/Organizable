@@ -17,6 +17,7 @@ const CreateBoardCard = styled.button`
   border-radius: 8px;
 `;
 
+
 function MyBoards() {
   const [boards, setBoards] = useState([]);
   const [open, setOpen] = useState(false);

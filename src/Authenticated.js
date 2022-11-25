@@ -11,14 +11,19 @@ const HomeContainer = styled.div`
   width: 100%;
 `;
 
+const ContainerPages = styled.div`
+  width: 100vh;
+  padding: 32px;
+`;
+
 function Authenticate() {
   return(
     <HomeContainer>
       <Navbar/>
       <Routes>
-        <Route index element={<MyBoards/>}/>
-        <Route path="/ClosedBoards" element={<ClosedBoards/>}/>
-        <Route path="/MyProfile" element={<MyProfile/>}/>
+        <Route index element={<ContainerPages><MyBoards/></ContainerPages>}/>
+        <Route path="/ClosedBoards" element={<ContainerPages><ClosedBoards/></ContainerPages>}/>
+        <Route path="/MyProfile" element={<ContainerPages><MyProfile/></ContainerPages>}/>
         <Route path="/Board/:id" element={<DetailBoard/>}/>
       </Routes>
     </HomeContainer>

@@ -14,8 +14,9 @@ import {
   HiOutlineCheck,
   HiOutlineX
 } from 'react-icons/hi';
+import { colors } from './colors';
 
-const NavbarStyles = {margin: "8px 0", fontSize: "25px"};
+const NavbarStyles = {margin: "8px 0", fontSize: "25px", color: colors.gray300};
 
 export const icons = {
   user: <HiOutlineUserCircle style={NavbarStyles}/>,
@@ -31,5 +32,5 @@ export const icons = {
   cancel: <HiOutlineX/>,
   boards: <HiOutlineViewBoards style={NavbarStyles}/>,
   archive: <HiOutlineArchive style={NavbarStyles}/>,
-  logout: <HiOutlineLogout/>
+  logout: <HiOutlineLogout style={NavbarStyles}/>
 }
