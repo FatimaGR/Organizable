@@ -10,6 +10,7 @@ export const FormButton1 = styled.button`
   height: 40px;
   border: none;
   border-radius: 4px;
+  cursor: pointer;
 `;
 
 export const FormButton2 = styled.button`
@@ -19,6 +20,7 @@ export const FormButton2 = styled.button`
   width: 100%;
   height: 40px;
   margin-bottom: 16px;
+  cursor: pointer;
 `;
 
 export const FormButton3 = styled.button`
@@ -29,4 +31,5 @@ export const FormButton3 = styled.button`
   height: 40px;
   border: none;
   border-radius: 4px;
+  cursor: pointer;
 `;

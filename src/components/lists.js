@@ -2,7 +2,38 @@ import { useState } from "react";
 import Sortable from "sortablejs";
 import { deleteList, updateList } from "../services/list-services";
 import { addSortableCard, Cards, CreateCards } from "./cards";
+import styled from "@emotion/styled";
+import { colors } from "../styles/colors";
+import { typography, weight } from "../styles/typography";
 
+const ListCard = styled.div`
+  background: ${colors.gray100};
+  border-radius: 8px;
+  width: 280px;
+  padding: 8px;
+  gap: 10px;
+  box-sizing: border-box;
+`;
+
+const NavbarList = styled.div`
+  border-bottom: 1px solid ${colors.gray300};
+  gap: 10px;
+  padding-bottom: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const ListName = styled.a`
+  ${typography.heading.xs}
+  ${weight.semibold}
+  margin: 0px;
+`;
+
+const Options = styled.div`
+
+`;
 
 export function Lists({boardId, list}) {
   const [isChecked, setIsChecked] = useState(false);
@@ -30,7 +61,7 @@ export function Lists({boardId, list}) {
   }
 
   return(
-    <div>
+    <ListCard>
       {isChecked ? (
       <div>
         <form onSubmit={handleSubmit}>
@@ -49,16 +80,18 @@ export function Lists({boardId, list}) {
         </form>
       </div>
       ) : (
-      <div>
-        <a>{list.name}</a>
-        <input
-          name="edit"
-          type="checkbox"
-          checked={isChecked}
-          onChange={handleOnChange}
-        />
-        <button onClick={handleDelete}>delete</button>
-      </div>
+      <NavbarList>
+        <ListName>{list.name}</ListName>
+        <Options>
+          <input
+            name="edit"
+            type="checkbox"
+            checked={isChecked}
+            onChange={handleOnChange}
+          />
+          <button onClick={handleDelete}>delete</button>
+        </Options>
+      </NavbarList>
       ) }
       <div className="container-card">
       {list.cards.map((card) => {
@@ -69,7 +102,7 @@ export function Lists({boardId, list}) {
       })}
       </div>
       <CreateCards listId={list.listId}/>
-    </div>
+    </ListCard>
   )
 }
 

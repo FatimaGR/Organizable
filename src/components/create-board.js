@@ -3,11 +3,12 @@ import styled from "@emotion/styled";
 import { createBoards } from "../services/board-services";
 import { boardColors, colors } from "../styles/colors";
 import { typography } from "../styles/typography";
+import { New } from "../styles/input";
 
 const Card = styled.div`
   width: 190px;
   height: 96px;
-  margin: 8px;
+  margin: 0;
   border-radius: 8px;
   background-color: ${boardColors.mintGreen};
   display: flex;
@@ -16,17 +17,6 @@ const Card = styled.div`
   align-items: flex-end;
   padding: 8px;
   box-sizing: border-box;
-`;
-
-const BoardName = styled.input`
-  width: 100%;
-  background: rgba(255, 255, 255, 0.5);
-  border: none;
-  border-radius: 8px;
-  ${typography.content.lg}
-  padding: 0px 4px;
-  box-sizing: border-box;
-  color: ${colors.gray300};
 `;
 
 const Button = styled.button`
@@ -38,16 +28,40 @@ const Button = styled.button`
   padding: 6px 10px;
   box-sizing: border-box;
   border-radius: 4px;
+  cursor: pointer;
+`;
+
+const Colors = styled.div`
+  width: 112px;
+  height: 112px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 8px;
+  box-sizing: border-box;
 `;
 
 const Color = styled.input`
   -webkit-appearance: none;
+  margin: 0;
   height: 32px;
   width: 32px;
   border-radius: 4px;
   background-color: ${(props) => props.color};
   cursor: pointer;
-  hover: 2px solid ${(props) => props.color}
+  &:hover {
+    border: 4px solid ${colors.white};
+  }
+  &:checked {
+    border: 4px solid ${colors.white};
+  }
+`;
+
+const FormContainer = styled.form`
+  gap: 16px;
+  padding: 6px 32px;
+  box-sizing: border-box;
+  display: flex;
 `;
 
 function CreateBoard(){
@@ -68,20 +82,18 @@ function CreateBoard(){
   }
 
   return(
-    <div>
-      <form onSubmit={handleSubmit}>
-        <Card>
-          <BoardName placeholder="Board name" value={formData.name} name="name" onChange={handleChange}/>
-          <Button type="submit">CREATE</Button>
-        </Card>
-        <div>
-          {Object.entries(boardColors).map(([colorName, color]) => (
-            <Color key={colorName} type="radio" name="color" value={color} color={color} onChange={handleChange}/>
-          ))}
-          
-        </div>
-      </form>
-    </div>
+    <FormContainer onSubmit={handleSubmit}>
+      <Card>
+        <New placeholder="Board name" value={formData.name} name="name" onChange={handleChange}/>
+        <Button type="submit">CREATE</Button>
+      </Card>
+      <Colors>
+        {Object.entries(boardColors).map(([colorName, color]) => (
+          <Color key={colorName} type="radio" name="color" value={color} color={color} onChange={handleChange}/>
+        ))}
+        
+      </Colors>
+    </FormContainer>
   )
 }
 

@@ -10,7 +10,7 @@ const NavbarContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 240px;
+  width: 300px;
   gap: 8px;
   background: ${colors.white};
   height: 100vh;

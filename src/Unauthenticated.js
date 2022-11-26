@@ -12,7 +12,7 @@ const Container = styled.div`
 
 const ContainerForm = styled.div`
   width: 704px;
-  margin: auto;
+  margin: 48px auto;
   gap: 32px;
   display: flex;
   flex-direction: column;

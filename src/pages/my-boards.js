@@ -18,6 +18,7 @@ const CreateBoardCard = styled.button`
   border: 3px solid ${colors.gray300};
   margin: 8px;
   border-radius: 8px;
+  cursor: pointer;
   ${typography.content.lg}
   color: ${colors.gray400};
 `;

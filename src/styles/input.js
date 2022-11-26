@@ -4,7 +4,7 @@ import { typography, weight } from "./typography";
 
 export const FormInput = styled.input`
   background: transparent;
-  max-width: 100%;
+  width: 100%;
   border: none;
   margin: 8px 11px;
   outline: none;
@@ -29,8 +29,19 @@ export const FormLabel = styled.label`
 
 export const Form = styled.form`
   width: 480px;
-  margin: auto;
   gap: 16px;
   display: flex;
   flex-direction: column;
+`;
+
+export const New = styled.input`
+  width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 8px;
+  ${typography.content.lg}
+  padding: 4px;
+  box-sizing: border-box;
+  color: ${colors.gray300};
+  outline: none;
 `;

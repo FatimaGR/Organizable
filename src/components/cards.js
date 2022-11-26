@@ -1,6 +1,28 @@
 import { useState } from "react";
 import Sortable from "sortablejs";
 import { createCard, deleteCard } from "../services/card-services";
+import { New } from "../styles/input";
+import styled from "@emotion/styled";
+import { colors } from "../styles/colors";
+
+const NewCard = styled.form`
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  gap: 10px;
+`;
+
+const Card = styled.div`
+  background: ${colors.white};
+  border-radius: 8px;
+  padding: 4px;
+  width: 100%;
+  margin: 5px 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
 
 export function Cards({listId, card}) {
 
@@ -10,26 +32,11 @@ export function Cards({listId, card}) {
   }
 
   return(
-    <div>
+    <Card>
       <a>{card.name}</a>
       <button onClick={handleDelete}>X</button>
-    </div>
+    </Card>
   )
-}
-
-export function addSortableCard(){
-  const cardSortables = document.querySelectorAll(".container-card");
-  cardSortables.forEach(cardSortable => {
-    new Sortable(cardSortable, {
-      animation: 150,
-      store: {
-        set: function (sortable) {
-          var order = sortable.toArray();
-          console.log("hola", order)
-        }
-      }
-    })
-  })
 }
 
 export function CreateCards({listId}) {
@@ -48,14 +55,29 @@ export function CreateCards({listId}) {
   }
 
   return(
-    <form onSubmit={handleSubmit}>
-      <input
+    <NewCard onSubmit={handleSubmit}>
+      <New
         name="name"
         value={cardData.name}
         onChange={handleChange}
         placeholder="new card"
       />
       <button type="submit">más</button>
-    </form>
+    </NewCard>
   )
+}
+
+export function addSortableCard(){
+  const cardSortables = document.querySelectorAll(".container-card");
+  cardSortables.forEach(cardSortable => {
+    new Sortable(cardSortable, {
+      animation: 150,
+      store: {
+        set: function (sortable) {
+          var order = sortable.toArray();
+          console.log("hola", order)
+        }
+      }
+    })
+  })
 }

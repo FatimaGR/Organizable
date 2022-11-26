@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { icons } from "../styles/icons";
 
-const ContainerModal = styled.div`
+const BackgroundModal = styled.div`
   position: absolute;
   height: 100%;
   width: 100%;
@@ -19,15 +19,25 @@ const ContainerModal = styled.div`
 const CloseButton = styled.button`
   background: none;
   border: none;
+  padding: 0;
+  cursor: pointer;
+`;
+
+const ContentModal = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 `;
 
 export function Modal({children, open, close}) {
   if(!open) return null
 
   return (
-    <ContainerModal>
+    <BackgroundModal>
+      <ContentModal>
       <CloseButton onClick={close}>{icons.cancel}</CloseButton>
       {children}
-    </ContainerModal>
+      </ContentModal>
+    </BackgroundModal>
   )
 }

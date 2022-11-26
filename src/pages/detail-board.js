@@ -7,11 +7,13 @@ import logo from "../assets/logo.svg";
 import styled from "@emotion/styled";
 import { colors } from "../styles/colors";
 import { weight } from "../styles/typography";
+import { New } from "../styles/input";
 
 const BoardBackground = styled.div`
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   padding: 32px;
+  box-sizing: border-box;
   background-color: ${(props) => props.color};
 `;
 
@@ -35,6 +37,25 @@ const BoardName = styled.h1`
   ${weight.semibold}
   margin: 0px;
   color: ${colors.gray500};
+`;
+
+const CreateList = styled.form`
+  background: ${colors.gray100};
+  border-radius: 8px;
+  width: 280px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  box-sizing: border-box;
+  gap: 10px;
+`;
+
+const ContainerList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 32px;
 `;
 
 function DetailBoard() {
@@ -68,18 +89,18 @@ function DetailBoard() {
       </Title>
       <BoardBackground color={board?.color}>
         <BoardName>{board?.name}</BoardName>
-        <div className="container-list">
-        {board?.lists.map((list) => {
-          addSortableList();
-          return(
-            <Lists key={list.id} list={list} boardId={params.id}/>
-          )
-        })}
-        </div>
-        <form onSubmit={handleSubmit}>
-          <input placeholder="new list" value={formData.name} name="name" onChange={handleChange}/>
-          <button type="submit">+</button>
-        </form>
+        <ContainerList className="container-list">
+          {board?.lists.map((list) => {
+            addSortableList();
+            return(
+              <Lists key={list.id} list={list} boardId={params.id}/>
+            )
+          })}
+          <CreateList onSubmit={handleSubmit}>
+            <New placeholder="new list" value={formData.name} name="name" onChange={handleChange}/>
+            <button type="submit">+</button>
+          </CreateList>
+        </ContainerList>
       </BoardBackground>
     </Page>
   )
