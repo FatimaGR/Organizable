@@ -1,14 +1,17 @@
 import { useState } from "react";
+import styled from "@emotion/styled";
 import Sortable from "sortablejs";
 import { createCard, deleteCard } from "../services/card-services";
 import { New } from "../styles/input";
-import styled from "@emotion/styled";
 import { colors } from "../styles/colors";
+import { icons } from "../styles/icons";
+import { CreateButton, TrashButton } from "../styles/button";
 
 const NewCard = styled.form`
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
+  align-items: center;
   gap: 10px;
 `;
 
@@ -34,7 +37,7 @@ export function Cards({listId, card}) {
   return(
     <Card>
       <a>{card.name}</a>
-      <button onClick={handleDelete}>X</button>
+      <TrashButton onClick={handleDelete}>{icons.trash}</TrashButton>
     </Card>
   )
 }
@@ -62,7 +65,7 @@ export function CreateCards({listId}) {
         onChange={handleChange}
         placeholder="new card"
       />
-      <button type="submit">más</button>
+      <CreateButton type="submit">{icons.plus}</CreateButton>
     </NewCard>
   )
 }

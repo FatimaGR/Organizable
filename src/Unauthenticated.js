@@ -1,9 +1,9 @@
 import { useState } from "react";
+import styled from "@emotion/styled";
 import LoginForm from "./components/login-form";
 import SignUpForm from "./components/signup-form";
-import { FormButton2 } from "./styles/button";
-import styled from "@emotion/styled";
 import logo from "./assets/logo.svg";
+import { FormButton2 } from "./styles/button";
 
 const Container = styled.div`
   height: 100vh;

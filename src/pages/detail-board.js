@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Lists, addSortableList } from "../components/lists";
 import { getBoardById } from "../services/board-services";
 import { createList } from "../services/list-services";
-import logo from "../assets/logo.svg";
+import { Lists, addSortableList } from "../components/lists";
 import styled from "@emotion/styled";
 import { colors } from "../styles/colors";
 import { weight } from "../styles/typography";
 import { New } from "../styles/input";
+import { CreateButton } from "../styles/button";
+import { icons } from "../styles/icons";
+import logo from "../assets/logo.svg";
 
 const BoardBackground = styled.div`
   min-height: 100%;
@@ -98,7 +100,7 @@ function DetailBoard() {
           })}
           <CreateList onSubmit={handleSubmit}>
             <New placeholder="new list" value={formData.name} name="name" onChange={handleChange}/>
-            <button type="submit">+</button>
+            <CreateButton type="submit">{icons.plus}</CreateButton>
           </CreateList>
         </ContainerList>
       </BoardBackground>

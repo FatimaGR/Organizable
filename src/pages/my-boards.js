@@ -1,9 +1,9 @@
-import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
+import { getBoards } from "../services/board-services";
+import styled from "@emotion/styled";
 import CardBoard from "../components/card-board";
 import CreateBoard from "../components/create-board";
 import { Modal } from "../components/create-modal";
-import { getBoards } from "../services/board-services";
 import { colors } from "../styles/colors";
 import { typography } from "../styles/typography";
 

@@ -2,7 +2,6 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 import { createBoards } from "../services/board-services";
 import { boardColors, colors } from "../styles/colors";
-import { typography } from "../styles/typography";
 import { New } from "../styles/input";
 
 const Card = styled.div`

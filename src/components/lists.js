@@ -1,10 +1,15 @@
+import styled from "@emotion/styled";
 import { useState } from "react";
-import Sortable from "sortablejs";
 import { deleteList, updateList } from "../services/list-services";
 import { addSortableCard, Cards, CreateCards } from "./cards";
-import styled from "@emotion/styled";
 import { colors } from "../styles/colors";
 import { typography, weight } from "../styles/typography";
+import { New } from "../styles/input";
+import { SaveButton, TrashButton } from "../styles/button";
+import { icons } from "../styles/icons";
+import Sortable from "sortablejs";
+import edit from "../assets/edit.svg";
+import cancel from "../assets/cancel.svg";
 
 const ListCard = styled.div`
   background: ${colors.gray100};
@@ -28,11 +33,39 @@ const NavbarList = styled.div`
 const ListName = styled.a`
   ${typography.heading.xs}
   ${weight.semibold}
-  margin: 0px;
+  margin: 0;
 `;
 
-const Options = styled.div`
+const ModeEdit = styled.input`
+  appearance: none;
+  background-image: url(${edit});
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin: 0;
+  &:checked {
+    background-image: url(${cancel});
+    width: 9px;
+    height: 9px;
+  }
+`;
 
+const EditForm = styled.form`
+  display: flex;
+  gap: 10px;
+`;
+
+const IconBackground = styled.div`
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  background: ${colors.gray200};
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 3px;
 `;
 
 export function Lists({boardId, list}) {
@@ -64,33 +97,35 @@ export function Lists({boardId, list}) {
     <ListCard>
       {isChecked ? (
       <div>
-        <form onSubmit={handleSubmit}>
-          <input
+        <EditForm onSubmit={handleSubmit}>
+          <New
             name="name"
             value={listData.name}
             onChange={handleChange}
           />
-          <input
-            name="edit"
-            type="checkbox"
-            checked={isChecked}
-            onChange={handleOnChange}
-          />
-          <button type="submit">edit</button>
-        </form>
+          <SaveButton type="submit">{icons.check}</SaveButton>
+          <IconBackground>
+            <ModeEdit
+              name="edit"
+              type="checkbox"
+              checked={isChecked}
+              onChange={handleOnChange}
+            />
+          </IconBackground>
+        </EditForm>
       </div>
       ) : (
       <NavbarList>
         <ListName>{list.name}</ListName>
-        <Options>
-          <input
+        <div>
+          <ModeEdit
             name="edit"
             type="checkbox"
             checked={isChecked}
             onChange={handleOnChange}
           />
-          <button onClick={handleDelete}>delete</button>
-        </Options>
+          <TrashButton onClick={handleDelete}>{icons.trash}</TrashButton>
+        </div>
       </NavbarList>
       ) }
       <div className="container-card">

@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Input } from "../components/input";
 import { useAuth } from "../context/auth-context";
+import styled from "@emotion/styled";
+import { Input } from "../components/input";
 import { deleteUser, editUser } from "../services/user-services";
-import {icons} from "../styles/icons";
+import { icons } from "../styles/icons";
 import { Form } from "../styles/input";
 import { FormButton1, FormButton3 } from "../styles/button";
-import styled from "@emotion/styled";
 
 const ContainerForm = styled.div`
   display: flex;

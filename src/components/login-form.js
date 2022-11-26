@@ -3,7 +3,6 @@ import { useAuth } from "../context/auth-context";
 import { Input } from "./input";
 import { icons } from "../styles/icons";
 import { FormButton1 } from "../styles/button";
-import styled from "@emotion/styled";
 import { Form } from "../styles/input";
 
 

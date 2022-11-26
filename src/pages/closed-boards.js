@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
-import CardBoard from "../components/card-board";
 import { getBoards } from "../services/board-services";
+import CardBoard from "../components/card-board";
 
 const ContainerBoards = styled.div`
   display: flex;
