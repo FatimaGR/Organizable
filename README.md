@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# Organizable
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An application to keep track of all your projects.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Getting Started](#getting-started)
+  - [Built with](#built-with)
+  - [Installation](#installation)
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [How to use](#how-to-use)
+  - [User account](#user-account)
+  - [Home](#home)
+  - [My boards](#my-boards)
+  - [Closed boards](#closed-boards)
+  - [My profile](#my-profile)
+  - [Lists](#lists)
 
-### `npm start`
+## Getting Started
+### Built with
+![JavaScript](https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript)
+![React](https://img.shields.io/badge/-React-%23282C34?style=flat-square&logo=react)
+- JavaScript
+- React
+- Emotion
+### Installation
+Run the following commands:
+```
+npm install
+```
+Running the app
+```
+npm start
+```
+To view it open http://localhost:3000
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overview
+### Screenshot
+![](./readme-images/organizable.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Links
+- Live Site URL:[]()
 
-### `npm test`
+## How to use
+### User account
+To use Organizable you need an account. First you will see the "Login" page, if you don't have an account, you can create one in the "Sign Up" page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![](./readme-images/user-account.gif)
 
-### `npm run build`
+### Home
+Aftert you login, you will see Organizable's home page, it have a sidebar that contains "My Boards", "Closed Boards" and "My profile" pages, and the option to Log Out.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![](./readme-images/home.gif)
+### My Boards
+In this page you can create, starred and close boards.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To create board click the button with the same name, it open a modal where you can fill Board details like color and title.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![](./readme-images/create-board.gif)
 
-### `npm run eject`
+To starred a board click on its star, and to close it click on its trash.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![](./readme-images/starred-delete-board.gif)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Closed Boards
+In this page you can recover or delete permanently a board.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To recover a board click on its arrow up, and to delete permanently it click on its trash. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![](./readme-images/closed-boards.gif)
+### My profile
+In this page you can see, edit and delete your profile.
 
-## Learn More
+To edit your profile, update your information and click the "Update Account" button.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To delete your profile click the "Delete my Account" button.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![](./readme-images/my-profile.gif)
+### Lists
+When you click a board you will open its page, it have the options to create, update and delete lists with cards.
 
-### Code Splitting
+To create a list fill a title and click "+" button.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+To delete a list click the trash button.
 
-### Analyzing the Bundle Size
+To edit a list click the edit button, then an editable input will be displayed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To create or delete a card do the same with their respective buttons
+![](./readme-images/lists.png)

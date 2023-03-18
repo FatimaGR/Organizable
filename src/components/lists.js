@@ -15,6 +15,7 @@ const ListCard = styled.div`
   background: ${colors.gray100};
   border-radius: 8px;
   width: 280px;
+  height: 100%;
   padding: 8px;
   gap: 10px;
   box-sizing: border-box;

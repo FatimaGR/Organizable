@@ -12,6 +12,11 @@ const ContainerForm = styled.div`
   margin: auto;
 `;
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 function MyProfile() {
   
   const { user } = useAuth();
@@ -41,7 +46,7 @@ function MyProfile() {
   };
 
   return (
-    <div>
+    <Container>
       <h1>My profile</h1>
       <ContainerForm>
       <Form onSubmit={handleSubmit}>
@@ -78,7 +83,7 @@ function MyProfile() {
         <FormButton1 onClick={handleDelete}>DELETE MY ACCOUNT</FormButton1>
       </Form>
       </ContainerForm>
-    </div>
+    </Container>
   )
 }
 
