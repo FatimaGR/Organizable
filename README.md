@@ -41,7 +41,7 @@ To view it open http://localhost:3000
 ![](./readme-images/organizable.png)
 
 ### Links
-- Live Site URL:[]()
+- Live Site URL:[Organizable](https://organizable-kohl.vercel.app)
 
 ## How to use
 ### User account
@@ -50,7 +50,7 @@ To use Organizable you need an account. First you will see the "Login" page, if 
 ![](./readme-images/user-account.gif)
 
 ### Home
-Aftert you login, you will see Organizable's home page, it have a sidebar that contains "My Boards", "Closed Boards" and "My profile" pages, and the option to Log Out.
+After you login, you will see Organizable's home page, it have a sidebar that contains "My Boards", "Closed Boards" and "My profile" pages, and the option to Log Out.
 
 ![](./readme-images/home.gif)
 ### My Boards
@@ -88,4 +88,5 @@ To delete a list click the trash button.
 To edit a list click the edit button, then an editable input will be displayed.
 
 To create or delete a card do the same with their respective buttons
+
 ![](./readme-images/lists.png)
